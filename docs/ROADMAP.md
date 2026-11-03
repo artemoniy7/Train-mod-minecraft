@@ -1,7 +1,7 @@
 # Development roadmap
 
 ## Milestone 1: Foundation
-- [ ] Import the official NeoForge 1.21.1 MDK and Gradle Wrapper
+- [x] Add the official NeoForge 1.21.1 ModDevGradle build setup and Gradle Wrapper
 - [ ] Launch the development client
 - [ ] Confirm that `metrotrains` appears in the Mods list
 
