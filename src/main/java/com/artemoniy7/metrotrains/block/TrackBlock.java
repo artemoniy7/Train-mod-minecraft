@@ -1,7 +1,7 @@
 package com.artemoniy7.metrotrains.block;
 
 import com.artemoniy7.metrotrains.block.entity.TrackBlockEntity;
-import com.artemoniy7.metrotrains.registry.ModBlockEntities;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -19,10 +19,17 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.Nullable;
 
 public class TrackBlock extends BaseEntityBlock {
+    public static final MapCodec<TrackBlock> CODEC = simpleCodec(TrackBlock::new);
+
     private static final VoxelShape COLLISION = Block.box(0, 0, 0, 16, 4, 16);
 
     public TrackBlock(BlockBehaviour.Properties properties) {
         super(properties);
+    }
+
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return CODEC;
     }
 
     @Override
