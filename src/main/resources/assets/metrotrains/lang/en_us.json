@@ -1,5 +1,6 @@
 {
   "mod_description.metrotrains": "A Minecraft metro and railway transportation mod.",
   "itemGroup.metrotrains": "Metro Trains",
-  "item.metrotrains.metro_ticket": "Metro Ticket"
+  "item.metrotrains.metro_ticket": "Metro Ticket",
+  "block.metrotrains.metro_track": "Metro Track"
 }
