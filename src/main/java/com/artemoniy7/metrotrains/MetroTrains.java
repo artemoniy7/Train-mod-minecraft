@@ -1,7 +1,10 @@
 package com.artemoniy7.metrotrains;
 
+import com.artemoniy7.metrotrains.registry.ModBlockEntities;
+import com.artemoniy7.metrotrains.registry.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -15,11 +18,13 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class MetroTrains {
     public static final String MOD_ID = "metrotrains";
 
-    private static final DeferredRegister.Items ITEMS =
-            DeferredRegister.createItems(MOD_ID);
+    private static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MOD_ID);
 
     private static final DeferredHolder<Item, Item> METRO_TICKET =
             ITEMS.register("metro_ticket", () -> new Item(new Item.Properties()));
+
+    private static final DeferredHolder<Item, Item> METRO_TRACK_ITEM =
+            ITEMS.register("metro_track", () -> new BlockItem(ModBlocks.METRO_TRACK.get(), new Item.Properties()));
 
     private static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MOD_ID);
@@ -28,10 +33,15 @@ public final class MetroTrains {
             CREATIVE_MODE_TABS.register("metro_trains", () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.metrotrains"))
                     .icon(() -> new ItemStack(METRO_TICKET.get()))
-                    .displayItems((parameters, output) -> output.accept(METRO_TICKET.get()))
+                    .displayItems((parameters, output) -> {
+                        output.accept(METRO_TICKET.get());
+                        output.accept(METRO_TRACK_ITEM.get());
+                    })
                     .build());
 
     public MetroTrains(IEventBus modEventBus) {
+        ModBlocks.BLOCKS.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITY_TYPES.register(modEventBus);
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
     }
