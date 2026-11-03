@@ -1,5 +1,6 @@
 {
   "mod_description.metrotrains": "Мод о метро, поездах и железнодорожной инфраструктуре.",
   "itemGroup.metrotrains": "Metro Trains",
-  "item.metrotrains.metro_ticket": "Билет на метро"
+  "item.metrotrains.metro_ticket": "Билет на метро",
+  "block.metrotrains.metro_track": "Рельсовый путь метро"
 }
