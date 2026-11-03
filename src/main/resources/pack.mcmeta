@@ -1,7 +1,6 @@
 {
   "pack": {
-    "description": "Metro Trains resources",
-    "min_format": 34,
-    "max_format": 34
+    "pack_format": 34,
+    "description": "Metro Trains resources"
   }
 }
