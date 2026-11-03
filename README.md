@@ -37,8 +37,9 @@ The Gradle Wrapper is included, so a separate Gradle installation is not require
 - [x] Mod loads in the development client
 - [x] Metro Trains creative tab and first placeholder item
 - [x] First straight track prototype modeled in Blockbench
-- [ ] Add the Blockbench source model to the repository
-- [ ] Implement the in-game track block and its 3-block-wide visual
+- [x] Add the Blockbench source model to the repository
+- [x] Add the first in-game track block and temporary 3-block-wide renderer
+- [ ] Build and test the track in the development client
 - [ ] Verify placement, collision, and rendering in the development client
 
 ## Track model workflow
