@@ -1,0 +1,10 @@
+Ignore Gradle and IDE build output
+.gradle/
+build/
+out/
+run/
+runs/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
