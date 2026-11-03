@@ -17,12 +17,12 @@ public class TrackBlockEntityRenderer implements BlockEntityRenderer<TrackBlockE
                        MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         poseStack.pushPose();
 
-        // The OBJ is authored along the Z axis and is centered on the block.
-        // Rotate it for east-west placement without changing its original dimensions.
+        // OBJ coordinates are centered around (0, 0, 0), while the block origin is its lower corner.
+        poseStack.translate(0.5D, 0.0D, 0.5D);
+
+        // The OBJ is authored along the Z axis. Rotate around its own center for east-west placement.
         if (blockEntity.getBlockState().getValue(TrackBlock.FACING).getAxis() == Direction.Axis.X) {
-            poseStack.translate(0.5D, 0.0D, 0.5D);
             poseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-            poseStack.translate(-0.5D, 0.0D, -0.5D);
         }
 
         TrackObjModel.render(poseStack, bufferSource, packedLight, packedOverlay);
