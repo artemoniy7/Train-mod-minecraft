@@ -96,7 +96,7 @@ final class TrackObjModel {
             instance = loaded;
             return instance;
         } catch (IOException | RuntimeException exception) {
-            Minecraft.getInstance().getLogger().error("Could not load Metro Trains OBJ model: {}", MODEL_LOCATION, exception);
+            org.slf4j.LoggerFactory.getLogger("MetroTrains").error("Could not load Metro Trains OBJ model: {}", MODEL_LOCATION, exception);
             return null;
         }
     }
