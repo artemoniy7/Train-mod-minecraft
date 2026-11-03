@@ -7,7 +7,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -32,8 +31,7 @@ public final class MetroTrains {
                     .displayItems((parameters, output) -> output.accept(METRO_TICKET.get()))
                     .build());
 
-    public MetroTrains() {
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+    public MetroTrains(IEventBus modEventBus) {
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
     }
